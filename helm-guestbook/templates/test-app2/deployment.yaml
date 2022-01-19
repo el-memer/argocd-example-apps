@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "helm-guestbook.fullname" . }}
+  name: {{ template "helm-guestbook.fullname" . }}-test-app2
   labels:
-    app: {{ template "helm-guestbook.name" . }}
+    app: {{ template "helm-guestbook.name" . }}-test-app2
     chart: {{ template "helm-guestbook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,12 +12,12 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "helm-guestbook.name" . }}
+      app: {{ template "helm-guestbook.name" . }}-test-app2
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "helm-guestbook.name" . }}
+        app: {{ template "helm-guestbook.name" . }}-test-app2
         release: {{ .Release.Name }}
     spec:
       containers:
